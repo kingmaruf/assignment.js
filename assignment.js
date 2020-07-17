@@ -29,5 +29,15 @@ var result = brickCalculator (7, 0, 0);
 console.log(result);
 
 // tinyFriend
-
-
+function tinyFriend(names){
+    var smallName = names[0];
+    for (var i = 0; i < names.length; i++){
+        var currentName = names[i];
+        if(currentName.length< smallName.length){
+          smallName = currentName;
+        }
+    }
+    return smallName;
+}
+var smallName = tinyFriend(['eka', 'noyona', 'pk', 'tisha', 'misa', 'sabrina']);
+console.log(smallName);
