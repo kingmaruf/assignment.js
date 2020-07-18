@@ -18,14 +18,27 @@ var result = woodCalculator(5, 3, 1);
 console.log (result);
 
 // brickCalculator
-function brickCalculator(oneToTenFloor, elevenToTwelveFloor, twentyOneToAboveFloor){
-    var oneToTenFloorCount = oneToTenFloor * 15000;
-    var elevenToTwelveFloorCount = elevenToTwelveFloor * 12000;
-    var twentyOneToAboveFloorCount = twentyOneToAboveFloor * 10000;
-    var totalBrick = oneToTenFloorCount + elevenToTwelveFloorCount + twentyOneToAboveFloorCount;
-    return totalBrick;
+function brickCalculator(floor){
+    var brick = 0;
+    if (floor<=10){
+        brick = floor * 15 * 1000;
+    } 
+    else if(floor<=20){
+        var firstLevel = 10 * 15 * 1000;
+        var remaining = floor - 10;
+        var secondLevel = remaining * 12 * 1000;
+        brick = firstLevel + secondLevel;
+    } 
+    else{
+        var firstLevel = 10 * 15 * 1000;
+        var secondLevel = 10 * 12 * 1000;
+        var remaining = floor - 20;
+        var thirdLevel = remaining * 10 * 1000;
+        brick = firstLevel + secondLevel + thirdLevel;
+    }   
+    return brick;
 }
-var result = brickCalculator (7, 0, 0);
+var result = brickCalculator (40);
 console.log(result);
 
 // tinyFriend
